@@ -1,0 +1,9 @@
+# Cloudflare Workers static-assets deploy (used by `npx wrangler deploy`).
+# Only ./public is uploaded as assets — this keeps node_modules (and the big
+# workerd binary that `npx wrangler` installs) out of the asset bundle, which
+# is what caused the "Asset too large" deploy failure.
+name = "goofy-invite"
+compatibility_date = "2026-06-18"
+
+[assets]
+directory = "./public"

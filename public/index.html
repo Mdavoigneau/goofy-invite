@@ -7,16 +7,19 @@
 <meta name="description" content="You have been summoned: Friday beers & good company. This Friday, after 5pm, the usual spot. RSVP: obviously.">
 
 <!-- ===== Open Graph / link previews (Microsoft Teams, Slack, iMessage, WhatsApp, etc.) =====
-     NOTE: og:image / og:url must be ABSOLUTE https URLs. These assume the Cloudflare Pages
-     default domain https://goofy-invite.pages.dev — if you use a custom domain or a different
-     project name, update the 4 URLs below (and bump ?v= to bust scraper caches). -->
+     og:image uses the jsDelivr CDN copy of the committed image, so the preview works no
+     matter which domain this lands on (Workers *.workers.dev, Pages *.pages.dev, or a custom
+     domain). Once the live URL is known you can switch og:image/twitter:image to same-origin
+     (https://YOUR-DOMAIN/og.png) and set og:url to match. To refresh the image after a change,
+     change @main to a tagged version or purge the jsDelivr cache.
+     NB: og:url below is a placeholder — update it to your live URL. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Friday Beers">
 <meta property="og:title" content="You're cordially invited — Friday Beers 🍺">
 <meta property="og:description" content="You have been summoned: Friday beers & good company. This Friday, after 5pm, the usual spot. RSVP: obviously.">
 <meta property="og:url" content="https://goofy-invite.pages.dev/">
-<meta property="og:image" content="https://goofy-invite.pages.dev/og.png?v=1">
-<meta property="og:image:secure_url" content="https://goofy-invite.pages.dev/og.png?v=1">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Mdavoigneau/goofy-invite@main/public/og.png">
+<meta property="og:image:secure_url" content="https://cdn.jsdelivr.net/gh/Mdavoigneau/goofy-invite@main/public/og.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -24,7 +27,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="You're cordially invited — Friday Beers 🍺">
 <meta name="twitter:description" content="Friday beers & good company. This Friday, after 5pm, the usual spot. RSVP: obviously.">
-<meta name="twitter:image" content="https://goofy-invite.pages.dev/og.png?v=1">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Mdavoigneau/goofy-invite@main/public/og.png">
 <meta name="twitter:image:alt" content="A distinguished pigeon raising a beer on a Friday Beers invitation card">
 <meta name="theme-color" content="#f9d5e8">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%BA%3C/text%3E%3C/svg%3E">

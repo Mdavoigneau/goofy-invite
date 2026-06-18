@@ -4,3 +4,4 @@ tools/candidates/
 .DS_Store
 og-card.html
 .claude/
+.wrangler/
