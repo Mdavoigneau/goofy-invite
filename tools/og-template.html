@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;border:0}
+  body{
+    width:1200px;height:630px;overflow:hidden;position:relative;
+    background:linear-gradient(135deg,#fde8f2 0%,#fce0ec 48%,#f9d5e8 100%);
+    font-family:'Lato',sans-serif;
+  }
+  .layer{position:absolute;inset:0;width:1200px;height:630px}
+
+  /* decorative gold invitation frame (wide; sides may be square-cropped) */
+  .frame{position:absolute;top:26px;left:90px;right:90px;bottom:26px;
+         border:2px solid #d9b24a;border-radius:10px;pointer-events:none}
+  .frame::before{content:"";position:absolute;inset:8px;
+         border:1px solid rgba(217,178,74,.5);border-radius:6px}
+
+  /* content column — kept inside the centered square safe zone (x 285..915) */
+  .col{position:absolute;left:0;right:0;top:0;height:630px;
+       display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+
+  .overline{margin-top:54px;font-weight:300;letter-spacing:6.5px;
+            text-transform:uppercase;font-size:19px;color:#b05880}
+  .title{font-family:'Playfair Display',serif;font-weight:700;font-size:82px;
+         line-height:1;color:#8b2252;margin-top:8px;
+         text-shadow:0 3px 10px rgba(139,34,82,.14)}
+  .subtitle{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
+            font-size:33px;color:#c0698f;margin-top:6px}
+
+  .photo-wrap{margin-top:20px;position:relative}
+  .crown{position:absolute;top:-34px;left:50%;transform:translateX(-50%);z-index:3;
+         filter:drop-shadow(0 2px 2px rgba(120,60,20,.3))}
+  .photo{width:286px;height:286px;border-radius:20px;object-fit:cover;display:block;
+         border:8px solid #fff;
+         box-shadow:0 0 0 2px #d9b24a, 0 16px 32px rgba(150,60,100,.30)}
+
+  .oneliner{position:absolute;bottom:46px;left:0;width:1200px;text-align:center;
+            font-weight:400;letter-spacing:4px;text-transform:uppercase;
+            font-size:16px;color:#b05880}
+  .oneliner b{color:#8b2252;font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- decorative bleed: faint hearts + sparkles in the outer strips, soft vignette -->
+<svg class="layer" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <path id="hb" d="M0,3 C0,-2 -7,-3 -7,2 C-7,7 0,11 0,11 C0,11 7,7 7,2 C7,-3 0,-2 0,3 Z"/>
+    <radialGradient id="vig" cx="50%" cy="46%" r="62%">
+      <stop offset="62%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#e9a9c9" stop-opacity="0.26"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#vig)"/>
+  <g fill="#e394bc" opacity="0.55">
+    <use href="#hb" transform="translate(48,150) scale(2.6)"/>
+    <use href="#hb" transform="translate(150,430) scale(1.7)"/>
+    <use href="#hb" transform="translate(34,320) scale(1.2)"/>
+    <use href="#hb" transform="translate(1156,170) scale(2.5)"/>
+    <use href="#hb" transform="translate(1052,440) scale(1.7)"/>
+    <use href="#hb" transform="translate(1168,330) scale(1.2)"/>
+  </g>
+  <g fill="#d9b24a" opacity="0.6">
+    <circle cx="120" cy="250" r="3"/><circle cx="175" cy="520" r="2.4"/>
+    <circle cx="1085" cy="300" r="3"/><circle cx="1040" cy="540" r="2.4"/>
+  </g>
+</svg>
+
+<div class="frame"></div>
+
+<div class="col">
+  <div class="overline">cordially invites you to</div>
+  <div class="title">Friday Beers</div>
+  <div class="subtitle">&amp; good company</div>
+
+  <div class="photo-wrap">
+    <svg class="crown" width="58" height="40" viewBox="0 0 58 40" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#f6df8f"/>
+          <stop offset="55%" stop-color="#e6c25f"/>
+          <stop offset="100%" stop-color="#c89a30"/>
+        </linearGradient>
+      </defs>
+      <path d="M5 35 L9 12 L20 24 L29 6 L38 24 L49 12 L53 35 Z"
+            fill="url(#gold)" stroke="#a87d24" stroke-width="1.4" stroke-linejoin="round"/>
+      <rect x="5" y="34" width="48" height="5" rx="2" fill="#eccb6a" stroke="#a87d24" stroke-width="1"/>
+      <circle cx="9" cy="11" r="2.8" fill="#f3d97e" stroke="#a87d24" stroke-width="0.8"/>
+      <circle cx="29" cy="5" r="3" fill="#f3d97e" stroke="#a87d24" stroke-width="0.8"/>
+      <circle cx="49" cy="11" r="2.8" fill="#f3d97e" stroke="#a87d24" stroke-width="0.8"/>
+      <circle cx="20" cy="29" r="1.8" fill="#fff6d6"/>
+      <circle cx="38" cy="29" r="1.8" fill="#fff6d6"/>
+    </svg>
+    <img class="photo" src="assets/pigeon.png" alt="A distinguished pigeon with a beer">
+  </div>
+</div>
+
+<div class="oneliner">R.S.V.P &middot; <b>obviously</b></div>
+
+</body>
+</html>

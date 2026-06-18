@@ -1,0 +1,13 @@
+{
+  "name": "goofy-invite",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Friday Beers invite + Open Graph share card (Cloudflare Pages static site)",
+  "scripts": {
+    "render-og": "node tools/render-og.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.0"
+  }
+}

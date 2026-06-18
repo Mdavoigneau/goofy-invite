@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Invited — Friday Beers 🍺</title>
+<meta name="description" content="You have been summoned: Friday beers & good company. This Friday, after 5pm, the usual spot. RSVP: obviously.">
+
+<!-- ===== Open Graph / link previews (Microsoft Teams, Slack, iMessage, WhatsApp, etc.) =====
+     NOTE: og:image / og:url must be ABSOLUTE https URLs. These assume the Cloudflare Pages
+     default domain https://goofy-invite.pages.dev — if you use a custom domain or a different
+     project name, update the 4 URLs below (and bump ?v= to bust scraper caches). -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Friday Beers">
+<meta property="og:title" content="You're cordially invited — Friday Beers 🍺">
+<meta property="og:description" content="You have been summoned: Friday beers & good company. This Friday, after 5pm, the usual spot. RSVP: obviously.">
+<meta property="og:url" content="https://goofy-invite.pages.dev/">
+<meta property="og:image" content="https://goofy-invite.pages.dev/og.png?v=1">
+<meta property="og:image:secure_url" content="https://goofy-invite.pages.dev/og.png?v=1">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A distinguished pigeon raising a beer on a Friday Beers invitation card">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="You're cordially invited — Friday Beers 🍺">
+<meta name="twitter:description" content="Friday beers & good company. This Friday, after 5pm, the usual spot. RSVP: obviously.">
+<meta name="twitter:image" content="https://goofy-invite.pages.dev/og.png?v=1">
+<meta name="twitter:image:alt" content="A distinguished pigeon raising a beer on a Friday Beers invitation card">
+<meta name="theme-color" content="#f9d5e8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%BA%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fde8f2 0%, #fce0ec 50%, #f9d5e8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    font-family: 'Lato', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hearts-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .heart {
+    position: absolute;
+    animation: floatUp linear infinite;
+    opacity: 0;
+    user-select: none;
+  }
+
+  @keyframes floatUp {
+    0%   { transform: translateY(0) scale(0.7) rotate(-10deg); opacity: 0; }
+    10%  { opacity: 0.7; }
+    80%  { opacity: 0.5; }
+    100% { transform: translateY(-110vh) scale(1.1) rotate(15deg); opacity: 0; }
+  }
+
+  .card {
+    background: linear-gradient(160deg, #fff5f8 0%, #fce8f0 60%, #f9e0ee 100%);
+    border: 1.5px solid #f4b8d4;
+    border-radius: 24px;
+    padding: 2.5rem 2.5rem 2rem;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 40px rgba(220,100,150,0.15);
+  }
+
+  .crown { font-size: 2rem; margin-bottom: 0.3rem; display: block; }
+
+  .cordially {
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #c0698f;
+    margin: 0 0 0.4rem;
+  }
+
+  .you-have {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #b05880;
+    margin: 0 0 0.3rem;
+  }
+
+  .main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #8b2252;
+    margin: 0 0 0.15rem;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #c0698f;
+    margin: 0 0 1rem;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 1rem;
+    color: #e8a0c0;
+    font-size: 1rem;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e8a0c0, transparent);
+  }
+
+  .puppy-container {
+    margin: 0.2rem auto 1rem;
+    width: 150px;
+    height: 150px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    border: 2px dashed #f4b8d4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wisdom-label {
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c0698f;
+    margin: 0 0 0.4rem;
+  }
+
+  .wisdom {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: #7a3055;
+    line-height: 1.6;
+    margin: 0 0 0.3rem;
+  }
+
+  .wisdom-attr {
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: #c0698f;
+    margin: 0 0 1.2rem;
+  }
+
+  .details-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.4rem;
+  }
+
+  .detail-pill {
+    background: rgba(255,255,255,0.6);
+    border: 1px solid #f4b8d4;
+    border-radius: 999px;
+    padding: 5px 14px;
+    font-size: 11px;
+    color: #8b2252;
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .rsvp-btn {
+    background: linear-gradient(135deg, #e0618e 0%, #c04575 100%);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 38px;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 2px 14px rgba(192,69,117,0.25);
+  }
+
+  .rsvp-btn:hover {
+    transform: scale(1.04);
+    box-shadow: 0 4px 20px rgba(192,69,117,0.35);
+  }
+
+  .footer-hearts {
+    margin-top: 1.2rem;
+    font-size: 1rem;
+    color: #e8a0c0;
+    letter-spacing: 0.3em;
+  }
+</style>
+</head>
+<body>
+
+<div class="hearts-bg" id="heartsContainer"></div>
+
+<div class="card">
+  <span class="crown">👑</span>
+  <p class="cordially">cordially invites you to</p>
+  <p class="you-have">you have been summoned for</p>
+  <h1 class="main-title">Friday Beers</h1>
+  <p class="subtitle">& good company</p>
+
+  <div class="divider">♥</div>
+
+  <div class="puppy-container">
+    <svg width="140" height="148" viewBox="0 0 140 148" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="38" cy="62" rx="18" ry="24" fill="#c8874a" transform="rotate(-18,38,62)"/>
+      <ellipse cx="102" cy="62" rx="18" ry="24" fill="#c8874a" transform="rotate(18,102,62)"/>
+      <ellipse cx="38" cy="63" rx="11" ry="16" fill="#e8a87c" transform="rotate(-18,38,63)"/>
+      <ellipse cx="102" cy="63" rx="11" ry="16" fill="#e8a87c" transform="rotate(18,102,63)"/>
+      <ellipse cx="70" cy="72" rx="36" ry="34" fill="#d99055"/>
+      <ellipse cx="58" cy="46" rx="10" ry="8" fill="#c8874a" transform="rotate(-10,58,46)"/>
+      <ellipse cx="70" cy="43" rx="10" ry="7" fill="#c8874a"/>
+      <ellipse cx="82" cy="46" rx="10" ry="8" fill="#c8874a" transform="rotate(10,82,46)"/>
+      <ellipse cx="70" cy="82" rx="20" ry="16" fill="#e8b080"/>
+      <circle cx="57" cy="68" r="7" fill="#fff"/>
+      <circle cx="83" cy="68" r="7" fill="#fff"/>
+      <circle cx="58.5" cy="68.5" r="4.5" fill="#3d1f00"/>
+      <circle cx="84.5" cy="68.5" r="4.5" fill="#3d1f00"/>
+      <circle cx="60" cy="67" r="1.5" fill="#fff"/>
+      <circle cx="86" cy="67" r="1.5" fill="#fff"/>
+      <path d="M51 61 Q57 58 63 61" fill="none" stroke="#7a4010" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M77 61 Q83 58 89 61" fill="none" stroke="#7a4010" stroke-width="1.8" stroke-linecap="round"/>
+      <ellipse cx="70" cy="80" rx="8" ry="5.5" fill="#3d1f00"/>
+      <ellipse cx="68" cy="78.5" rx="2.5" ry="1.5" fill="#6b3a1a" opacity="0.5"/>
+      <path d="M63 86 Q70 92 77 86" fill="none" stroke="#7a4010" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="70" cy="91" rx="6" ry="5" fill="#e05070"/>
+      <line x1="70" y1="88" x2="70" y2="96" stroke="#c03060" stroke-width="1.2"/>
+      <ellipse cx="70" cy="126" rx="30" ry="22" fill="#d99055"/>
+      <ellipse cx="38" cy="122" rx="9" ry="7" fill="#d99055" transform="rotate(30,38,122)"/>
+      <ellipse cx="30" cy="128" rx="8" ry="6" fill="#d99055"/>
+      <circle cx="26" cy="131" r="3" fill="#c8874a"/>
+      <circle cx="30" cy="133" r="3" fill="#c8874a"/>
+      <circle cx="34" cy="131" r="3" fill="#c8874a"/>
+      <ellipse cx="102" cy="122" rx="9" ry="7" fill="#d99055" transform="rotate(-30,102,122)"/>
+      <ellipse cx="110" cy="128" rx="8" ry="6" fill="#d99055"/>
+      <circle cx="106" cy="131" r="3" fill="#c8874a"/>
+      <circle cx="110" cy="133" r="3" fill="#c8874a"/>
+      <circle cx="114" cy="131" r="3" fill="#c8874a"/>
+      <rect x="16" y="100" width="26" height="32" rx="4" fill="#f5d76e" stroke="#c8a800" stroke-width="1.2"/>
+      <ellipse cx="21" cy="100" rx="5" ry="4" fill="#fffbe8"/>
+      <ellipse cx="29" cy="98" rx="6" ry="5" fill="#fffbe8"/>
+      <ellipse cx="37" cy="100" rx="5" ry="4" fill="#fffbe8"/>
+      <path d="M42 108 Q52 108 52 116 Q52 124 42 124" fill="none" stroke="#c8a800" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="24" cy="110" r="2" fill="#ffe082" opacity="0.7"/>
+      <circle cx="31" cy="116" r="1.5" fill="#ffe082" opacity="0.7"/>
+      <circle cx="36" cy="108" r="1.8" fill="#ffe082" opacity="0.7"/>
+      <text x="70" y="30" text-anchor="middle" font-size="14" fill="#e8609a">♥</text>
+    </svg>
+  </div>
+
+  <div class="divider">♥</div>
+
+  <p class="wisdom-label">words of wisdom</p>
+  <p class="wisdom">"Beer is proof that God loves us<br>and wants us to be happy."</p>
+  <p class="wisdom-attr">— Benjamin Franklin (probably)</p>
+
+  <div class="divider">♥</div>
+
+  <div class="details-row">
+    <span class="detail-pill">🗓 This Friday</span>
+    <span class="detail-pill">🍺 After 5pm</span>
+    <span class="detail-pill">📍 The usual spot</span>
+  </div>
+
+  <button class="rsvp-btn" onclick="this.textContent='See you there! 🥂'; this.style.background='linear-gradient(135deg,#c04575 0%,#8b2252 100%)'">
+    Count me in ♥
+  </button>
+
+  <div class="footer-hearts">♥ ♡ ♥ ♡ ♥</div>
+</div>
+
+<script>
+  const container = document.getElementById('heartsContainer');
+  const heartChars = ['♥','♡','💕','💗','🌸'];
+  const colors = ['#e8a0c0','#f4b8d4','#d4638e','#c0698f','#f9c0d8','#b05880'];
+
+  function makeHeart() {
+    const el = document.createElement('span');
+    el.className = 'heart';
+    el.textContent = heartChars[Math.floor(Math.random() * heartChars.length)];
+    el.style.left = Math.random() * 100 + '%';
+    el.style.bottom = '-40px';
+    el.style.color = colors[Math.floor(Math.random() * colors.length)];
+    const dur = 4 + Math.random() * 5;
+    el.style.animationDuration = dur + 's';
+    el.style.animationDelay = (Math.random() * 2) + 's';
+    el.style.fontSize = (0.9 + Math.random() * 1.2) + 'rem';
+    container.appendChild(el);
+    setTimeout(() => el.remove(), (dur + 3) * 1000);
+  }
+
+  for (let i = 0; i < 18; i++) setTimeout(makeHeart, i * 280);
+  setInterval(makeHeart, 400);
+</script>
+</body>
+</html>

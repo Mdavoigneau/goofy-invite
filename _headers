@@ -1,0 +1,6 @@
+# Cloudflare Pages headers
+# Let link-preview scrapers (Teams/Slack/etc.) cache the share image,
+# but not so long that an update never propagates.
+/og.png
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
